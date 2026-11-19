@@ -349,9 +349,9 @@ function showScene(){
  document.getElementById("sceneTitle").textContent=s.title;
  document.getElementById("affection").textContent="好感度："+affection;
 
- sentences=s.text.match(/[^。！？\n]+[。！？]?/g)
-   .map(t=>t.trim())
-   .filter(t=>t.length>0);
+ sentences = s.text.match(/[^。！？\n」]+[。！？]*(?:」)?/g)
+   .map(t => t.trim())
+   .filter(t => t.length > 0);
 
  sentenceIndex=0;
 
