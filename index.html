@@ -338,7 +338,8 @@ function start(id){
 function showScene(){
  const s=characters[current].scenes[step];
  document.getElementById("sceneTitle").textContent=s.title;
- document.getElementById("dialogue").innerHTML=s.text;
+ document.getElementById("dialogue").textContent=s.text;
+ document.getElementById("dialogue").style.whiteSpace="pre-line";
  document.getElementById("affection").textContent="好感度："+affection;
  const box=document.getElementById("choices");
  box.innerHTML="";
