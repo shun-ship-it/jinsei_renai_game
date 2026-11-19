@@ -326,31 +326,71 @@ tachibana: {
 let current = "";
 let affection = 0;
 let step = 0;
+let sentenceIndex = 0;
+let sentences = [];
 
 function start(id){
  current=id;
  affection=0;
  step=0;
+ sentenceIndex=0;
+
  document.getElementById("select").classList.add("hidden");
  document.getElementById("gameplay").classList.remove("hidden");
+
  document.getElementById("characterName").textContent=characters[id].name;
+
  showScene();
 }
 
 function showScene(){
  const s=characters[current].scenes[step];
+
  document.getElementById("sceneTitle").textContent=s.title;
- document.getElementById("dialogue").textContent=s.text;
- document.getElementById("dialogue").style.whiteSpace="pre-line";
  document.getElementById("affection").textContent="好感度："+affection;
+
+ sentences=s.text.match(/[^。！？\n]+[。！？]?/g)
+   .map(t=>t.trim())
+   .filter(t=>t.length>0);
+
+ sentenceIndex=0;
+
+ showSentence();
+}
+
+function showSentence(){
+
+ const dialogue=document.getElementById("dialogue");
  const box=document.getElementById("choices");
+
+ dialogue.textContent=sentences[sentenceIndex];
+
  box.innerHTML="";
- s.choices.forEach(c=>{
+
+ if(sentenceIndex < sentences.length-1){
+
   const b=document.createElement("button");
-  b.textContent=c[0];
-  b.onclick=()=>choose(c[1]);
+  b.textContent="次へ ▶";
+
+  b.onclick=()=>{
+   sentenceIndex++;
+   showSentence();
+  };
+
   box.appendChild(b);
- });
+
+ }else{
+
+  const s=characters[current].scenes[step];
+
+  s.choices.forEach(c=>{
+   const b=document.createElement("button");
+   b.textContent=c[0];
+   b.onclick=()=>choose(c[1]);
+   box.appendChild(b);
+  });
+
+ }
 }
 
 function choose(points){
