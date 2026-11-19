@@ -6,15 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>尽誠学園 恋の再会シミュレーション</title>
 <style>
-
-  .character-image {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  object-position: center top;
+  
+.character-emoji {
+  font-size: 65px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #29283b;
   border-radius: 9px;
   margin-bottom: 8px;
-  background: #29283b;
 }
 
 .character {
@@ -112,23 +113,23 @@ button:hover { background:#9675ae; }
   <h3>攻略する先生を選んでください</h3>
   <div class="characters">
 
-  <div class="character" onclick="start('hiyama')">
-    <img class="character-image" src="images/hiyama.jpg">
-    <div class="name">日山先生</div>
-    <div class="description">50代・英語<br>赤い鼻が特徴</div>
-  </div>
+<div class="character" onclick="start('hiyama')">
+  <div class="character-emoji">👨🏻‍🏫</div>
+  <div class="name">日山先生</div>
+  <div class="description">50代・英語<br>赤い鼻が特徴</div>
+</div>
 
-  <div class="character" onclick="start('yanai')">
-    <img class="character-image" src="images/yanai.jpg">
-    <div class="name">柳井先生</div>
-    <div class="description">生物教師<br>高い声と赤い肌</div>
-  </div>
+<div class="character" onclick="start('yanai')">
+  <div class="character-emoji">🧑🏻‍🔬</div>
+  <div class="name">柳井先生</div>
+  <div class="description">生物教師<br>高い声と赤い肌</div>
+</div>
 
-  <div class="character" onclick="start('tachibana')">
-    <img class="character-image" src="images/tachibana.jpg">
-    <div class="name">橘先生</div>
-    <div class="description">20代・元公共教師<br>現在は無職</div>
-  </div>
+<div class="character" onclick="start('tachibana')">
+  <div class="character-emoji">🤷‍♂️</div>
+  <div class="name">橘先生</div>
+  <div class="description">20代・元公共教師<br>現在は無職</div>
+</div>
 
 </div>
 </div>
